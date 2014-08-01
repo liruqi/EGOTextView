@@ -2766,13 +2766,6 @@ static const NSTimeInterval kDefaultAnimationDuration = 0.15f;
 
 - (void)setBeginCaret:(CGRect)begin endCaret:(CGRect)end {
     
-    if(!self.superview) return;
-    
-    self.frame = CGRectMake(begin.origin.x, begin.origin.y + begin.size.height, end.origin.x - begin.origin.x, (end.origin.y-end.size.height)-begin.origin.y);   
-    begin = [self.superview convertRect:begin toView:self];
-    end = [self.superview convertRect:end toView:self];
-    
-
     if (_leftCaret==nil) {
         UIView *view = [[UIView alloc] initWithFrame:begin];
         view.backgroundColor = [EGOTextView caretColor];
